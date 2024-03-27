@@ -1,5 +1,5 @@
 import {View, Text, Dimensions, Image, Animated} from 'react-native';
-import React, {useCallback} from 'react';
+import React, {useCallback, useState} from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import TinderLike from './TinderLike';
 import TabViewExample from './TabViewExample';
@@ -21,6 +21,7 @@ const TinderCard = ({item, index, isFirst, swipe, ...rest}) => {
     outputRange: [1, 0],
     extrapolate: 'clamp',
   });
+
   const renderChoice = useCallback(() => {
     return (
       <>
@@ -55,7 +56,7 @@ const TinderCard = ({item, index, isFirst, swipe, ...rest}) => {
           borderRadius: 10,
           alignSelf: 'center',
           shadowColor: 'green',
-          shadowOffset: {width: 0, height: -2},
+          shadowOffset: {width: 0, height: 2},
           shadowOpacity: 0.3,
           shadowRadius: 2,
           elevation: 4,
