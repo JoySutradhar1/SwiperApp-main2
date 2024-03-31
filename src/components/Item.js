@@ -85,7 +85,6 @@ const Item = ({item, index, onComponentOpen, onSilent, onDelete, onEdit}) => {
       renderLeftActions={leftSwipe}
       renderRightActions={rightSwipe}
       onSwipeableOpen={() => {
-        console.log('open');
         onComponentOpen(index);
       }}>
       <TouchableOpacity

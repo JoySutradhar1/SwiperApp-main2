@@ -22,8 +22,9 @@ const listTab = [
     status: 'Certifications',
   },
 ];
-const Tabs = () => {
+const Tabs = ({maximizeCard}) => {
   const [status, setStatus] = useState('Experience');
+  const [enableScroll, setEnableScroll] = useState(true);
   const setStatusFilter = status => {
     setStatus(status);
   };
@@ -33,7 +34,6 @@ const Tabs = () => {
       <View
         style={{
           backgroundColor: '#fff',
-
           flexDirection: 'row',
         }}>
         {listTab.map(item => (
@@ -62,12 +62,14 @@ const Tabs = () => {
           </TouchableOpacity>
         ))}
       </View>
-      <View
-        style={{
-          flex: 1,
+      <ScrollView
+        scrollEnabled={enableScroll}
+        contentContainerStyle={{
           padding: 20,
-          alignItems: 'center',
-          justifyContent: 'center',
+          flexGrow: 1,
+
+          // alignItems: 'center',
+          // justifyContent: 'center',
         }}>
         {status === 'Experience' && (
           <Text style={{color: 'black'}}>
@@ -119,28 +121,16 @@ const Tabs = () => {
             necessitatibus suscipit vitae nobis dolores eum! Magni eius
             repudiandae quaerat maiores in quae ullam assumenda sed ad fuga
             corrupti asperiores, id exercitationem recusandae tempora. Officiis,
-            ex corporis. Voluptates voluptate sapiente labore officia, quidem
-            dicta maxime provident eius fuga libero vero fugit, vel rerum
-            aperiam quasi asperiores fugiat. Dignissimos molestiae iste
-            laudantium. Saepe, sapiente voluptatum. Necessitatibus, vero
-            delectus quaerat accusantium placeat sunt temporibus ad aperiam hic
-            praesentium. Nesciunt ex quaerat eos quam perspiciatis sapiente hic
-            placeat, laudantium blanditiis aliquam omnis saepe quis a quo iste
-            suscipit, dolor asperiores magni tenetur. Fuga voluptatibus illum
-            quia. Placeat quae fuga in accusantium, vitae sunt ea commodi,
-            voluptates porro tempore itaque! Nihil reiciendis nesciunt ab iure
-            error vero adipisci magni eligendi eius.
+            ex corporis.
           </Text>
         )}
         {status === 'Education' && (
-          <ScrollView>
-            <Text style={{color: 'black'}}>Education</Text>
-          </ScrollView>
+          <Text style={{color: 'black'}}>Education</Text>
         )}
         {status === 'Certifications' && (
           <Text style={{color: 'black'}}>Certifications</Text>
         )}
-      </View>
+      </ScrollView>
     </View>
   );
 };

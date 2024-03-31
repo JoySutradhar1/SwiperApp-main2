@@ -56,12 +56,10 @@ const TinderSwipeDemo = () => {
   const panResponser = PanResponder.create({
     onMoveShouldSetPanResponder: () => true,
     onPanResponderMove: (_, {dx, dy}) => {
-      console.log('dx:' + dx + ' dy:' + dy);
       swipe.setValue({x: dx, y: dy});
     },
 
     onPanResponderRelease: (_, {dx, dy}) => {
-      console.log('released:' + 'dx:' + dx + ' dy:' + dy);
       let direction = Math.sign(dx);
       let isActionActive = Math.abs(dx) > 200;
       if (isActionActive) {
